@@ -1,0 +1,2 @@
+# magic.github.io
+magic
