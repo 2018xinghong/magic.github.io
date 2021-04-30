@@ -113,9 +113,9 @@
         type:"get",
         url: 'http://whois.pconline.com.cn/ipJson.jsp',
         /*使用jsonp解决跨域请求*/
-        dataType: "jsonp",
-        jsonp: "callback",
-        jsonpCallback:"IPCallBack",
+        // dataType: "jsonp",
+        // jsonp: "callback",
+        // jsonpCallback:"IPCallBack",
         success:(data)=>{
             console.log('getIP-success: ', data)
         },
