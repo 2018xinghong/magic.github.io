@@ -82,6 +82,7 @@
         <div class="behind"></div>
     </div>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="https://whois.pconline.com.cn/ipJson.jsp?callback=IPCallBack"></script>
     <script>
     var box=$(".box");
     var divs = box.children();
@@ -115,8 +116,8 @@
         /*使用jsonp解决跨域请求*/
         dataType: "jsonp",
         jsonp: "callback",
-        // jsonpCallback:"IPCallBack",
-        jsonpCallback:"?",
+        jsonpCallback:"IPCallBack",
+        // jsonpCallback:"?",
         success:(data)=>{
             console.log('getIP-success: ', data)
         },
@@ -124,7 +125,9 @@
             console.log('getIP-error: ', err)
         }
     });
-        
+    function IPCallBack(data) {
+        console.log(data)
+    }
     </script>
 </body>
 </html>
