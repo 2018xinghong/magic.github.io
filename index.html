@@ -109,6 +109,21 @@
         $(el).animate({"left":0,"top":0},2000);
     });
     
+    $.ajax({
+        type:"get",
+        url: 'http://whois.pconline.com.cn/ipJson.jsp',
+        /*使用jsonp解决跨域请求*/
+        dataType: "jsonp",
+        jsonp: "callback",
+        jsonpCallback:"IPCallBack",
+        success:(data)=>{
+            console.log('getIP-success: ', data)
+        },
+        error: (err) => {
+            console.log('getIP-error: ', err)
+        }
+    });
+        
     </script>
 </body>
 </html>
