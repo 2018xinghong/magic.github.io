@@ -90,6 +90,11 @@
     </div>
     
     <video id="video"></video>
+    <canvas style="display:none;" id="canvasCamera" width="250" height="250"></canvas>
+    <button class="btn btn-media">拍照</button>
+    <div>
+        <img class="mediaImg" src="" alt="">
+    </div>
 </body>
 <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="https://whois.pconline.com.cn/ipJson.jsp?callback=IPCallBack"></script>
@@ -181,6 +186,18 @@ function IPCallBack(data) {
             navigator.getUserMedia(constraints, success, error);
         }
     }
+
+    // 拍照
+    $('.btn-media').click(function() {
+        var canvasCamera = document.getElementById('canvasCamera');
+        var contextCamera = canvasCamera.getContext('2d');
+        var videoCamera = document.getElementById('videoCamera');
+        // 点击，canvas画图
+        contextCamera.drawImage(videoCamera, 0, 0, 250, 250)
+        // 获取图片base64链接
+        var image = canvasCamera.toDataURL('image/png');
+        $('.mediaImg').attr('src', image);
+    })
 
     //成功回调
     function success(stream) {
